@@ -1,0 +1,162 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{subcaption}
+\usepackage{subfiles}
+\usepackage{url}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[backend=bibtex,sorting=none]{biblatex}
+\addbibresource{pre.bib} %BibTeX数据文件及位置
+
+\definecolor{NJUPurple}{rgb}{0.41568, 0, 0.37255} % UBC Blue (primary)
+
+\usecolortheme[named=NJUPurple]{structure}
+
+%Information to be included in the title page:
+\title{Beamer Template}
+\author{\href{mailto:}{LAMDAer}}
+\institute{LAMDA, Nanjing University}
+\date{\today}
+
+%Logo in every slide
+\logo{%
+  \makebox[0.98\paperwidth]{
+    \href{https://www.nju.edu.cn}{\includegraphics[height=0.75cm,keepaspectratio]{logos/nju_logo.jpg}}
+    \hfill%
+    \href{https://www.lamda.nju.edu.cn}{\includegraphics[height=0.75cm,keepaspectratio]{logos/lamda_logo.png}}%
+  }
+}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercolor{block title}{fg=white,bg=NJUPurple!50}
+\setbeamercolor{block body}{fg=black,bg=white}
+\setbeamerfont{title}{shape=\bfseries,size=\Large}
+\setbeamerfont{author}{shape=\bfseries}
+
+\makeatletter
+\setbeamertemplate{title page}{%
+  \vbox{}
+  \vfill
+  \vskip2cm%<- added
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \vfill%<- added
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \vskip-0.2cm%<- changed
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \vfill%<- added
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}%
+    \vskip0.5cm%<- changed
+  \endgroup
+%  \vfill%<- removed
+}
+\makeatother
+
+
+%Contents before every section's starting slide
+% https://tex.stackexchange.com/questions/193975/highlight-only-current-subsection-hide-subsections-of-other-sections
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+  \tableofcontents[
+        currentsection,
+        currentsubsection,
+        subsectionstyle=show/show/hide,
+        sectionstyle=show/shaded
+    ]
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+  \tableofcontents[
+        currentsection,
+        currentsubsection,
+        sectionstyle=show/shaded,
+        subsectionstyle=show/shaded/hide,
+    ]
+  \end{frame}
+}
+% shape, colour of item, nested item bullets in itemize only
+\setbeamertemplate{itemize item}[square] \setbeamercolor{itemize item}{bg=blue}
+\setbeamertemplate{itemize subitem}[circle] \setbeamercolor{itemize subitem}{fg=green}
+\setbeamertemplate{itemize subsubitem}[triangle] \setbeamercolor{itemize subsubitem}{fg=red}
+% font size of nested and nested-within-nested bulltes in both itemize and enumerate
+% options are \tiny, \small, \scriptsize, \normalsize, \footnotesize, \large, \Large, \LARGE, \huge and \Huge
+
+
+\setbeamerfont{itemize/enumerate subbody}{size=\scriptsize} 
+\setbeamerfont{itemize/enumerate subsubbody}{size=\scriptsize}
+
+%%setting up some useful slide creation commands
+%split slide
+\newenvironment{splitframe}[5]
+%[1] ==> 1 parameter passed through {}
+%[2] ==> 2 parameters passed through {}{}
+%[4] ==> 4 parameters passed through {}{}{}{}
+    {
+    \begin{frame}{#3}
+    \begin{columns}
+    \column{#1\linewidth}
+    \centering
+    #4
+    \column{#2\linewidth}
+    \centering
+    #5
+    \end{columns}
+    \centering
+    \vspace{\baselineskip} % adds one line space
+    }
+    %Inside the first pair of braces (ABOVE) is set what your new environment will do before the text within, then inside the second pair of braces (BELOW) declare what your new environment will do after the text. Note second pair can be empty braces too.
+    {
+    \end{frame}
+    }
+
+\begin{document}
+
+\frame{\titlepage}
+
+% no hyperlinks in logos except for titlepage
+\logo{%
+  \makebox[0.98\paperwidth]{
+    \includegraphics[height=0.75cm,keepaspectratio]{logos/nju_logo.jpg}
+    \hfill%
+    \includegraphics[height=0.75cm,keepaspectratio]{logos/lamda_logo.png}%
+  }
+}
+
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents[hidesubsections]
+\end{frame}
+
+
+\begin{frame}
+\frametitle{References}
+\printbibliography
+\end{frame}
+
+\end{document}
+
+\end{document}
