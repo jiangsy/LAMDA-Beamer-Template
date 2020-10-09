@@ -9,9 +9,11 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage[backend=bibtex,sorting=none]{biblatex}
-\usepackage[AutoFakeBold, AutoFakeSlant]{xeCJK}
 
-\addbibresource{pre.bib} %BibTeX数据文件及位置
+% comment the following line to disable CJK support and use pdfLaTex
+% \usepackage[AutoFakeBold, AutoFakeSlant]{xeCJK}
+
+\addbibresource{reference.bib} %BibTeX数据文件及位置
 
 \definecolor{NJUPurple}{rgb}{0.41568, 0, 0.37255} % UBC Blue (primary)
 
@@ -20,7 +22,7 @@
 %Information to be included in the title page:
 \title{Beamer Template}
 \author{\href{mailto:}{LAMDAer}}
-\institute{LAMDA, Nanjing University, 南京大学}
+\institute{LAMDA, Nanjing University}
 \date{\today}
 
 %Logo in every slide
@@ -151,6 +153,22 @@
 \begin{frame}
 \frametitle{Table of Contents}
 \tableofcontents[hidesubsections]
+\end{frame}
+
+\section{Introduction}
+\begin{frame}
+\frametitle{Test}
+
+Deep Learning~\cite{lecun2015deep} ...
+
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}
+\frametitle{Test}
+
+Deep Learning~\cite{lecun2015deep} ...
+
 \end{frame}
 
 
