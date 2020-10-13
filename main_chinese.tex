@@ -10,17 +10,24 @@
 \usepackage{amsmath}
 \usepackage{xcolor,colortbl}
 \usepackage[backend=bibtex,sorting=none]{biblatex}
+\usepackage[AutoFakeBold, AutoFakeSlant]{xeCJK}
+
+\renewcommand{\figurename}{图}
+
+\addbibresource{reference.bib} %BibTeX数据文件及位置
+
+\definecolor{NJUPurple}{rgb}{0.41568, 0, 0.37255} 
+\colorlet{LightNJUPurple}{white!60!NJUPurple}
+\colorlet{SuperLightNJUPurple}{white!90!NJUPurple}
 
 \addbibresource{reference.bib} %BibTeX数据文件及位置
 
 \definecolor{NJUPurple}{rgb}{0.41568, 0, 0.37255} % UBC Blue (primary)
-\colorlet{LightNJUPurple}{white!60!NJUPurple}
-\colorlet{SuperLightNJUPurple}{white!90!NJUPurple}
 
 \usecolortheme[named=NJUPurple]{structure}
 
 %Information to be included in the title page:
-\title{Beamer Template}
+\title{Beamer 模板}
 \author{\href{mailto:}{LAMDAer}}
 \institute{LAMDA, Nanjing University}
 \date{\today}
@@ -80,7 +87,7 @@
 \AtBeginSection[]
 {
   \begin{frame}
-    \frametitle{Table of Contents}
+    \frametitle{目录}
   \tableofcontents[
         currentsection,
         currentsubsection,
@@ -93,7 +100,7 @@
 \AtBeginSubsection[]
 {
   \begin{frame}
-    \frametitle{Table of Contents}
+    \frametitle{目录}
   \tableofcontents[
         currentsection,
         currentsubsection,
@@ -151,11 +158,19 @@
 }
 
 \begin{frame}
-\frametitle{Table of Contents}
+\frametitle{目录}
 \tableofcontents[hidesubsections]
 \end{frame}
 
-\section{Introduction}
+\section{引言}
+\begin{frame}
+\frametitle{测试}
+
+深度学习~\cite{lecun2015deep} ...
+
+\end{frame}
+
+\section{结论}
 \begin{frame}
 \frametitle{Test}
 
@@ -163,17 +178,9 @@ Deep Learning~\cite{lecun2015deep} ...
 
 \end{frame}
 
-\section{Conclusion}
-\begin{frame}
-\frametitle{Test}
-
-Deep Learning~\cite{lecun2015deep} ...
-
-\end{frame}
-
 
 \begin{frame}
-\frametitle{References}
+\frametitle{参考文献}
 \printbibliography
 \end{frame}
 
