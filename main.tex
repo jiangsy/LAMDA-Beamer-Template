@@ -11,9 +11,9 @@
 \usepackage{xcolor,colortbl}
 \usepackage[backend=bibtex,sorting=none]{biblatex}
 
-\addbibresource{reference.bib} %BibTeX数据文件及位置
+\addbibresource{reference.bib} 
 
-\definecolor{NJUPurple}{rgb}{0.41568, 0, 0.37255} % UBC Blue (primary)
+\definecolor{NJUPurple}{rgb}{0.41568, 0, 0.37255} 
 \colorlet{LightNJUPurple}{white!60!NJUPurple}
 \colorlet{SuperLightNJUPurple}{white!90!NJUPurple}
 
@@ -35,8 +35,8 @@
 }
 
 \setbeamertemplate{blocks}[rounded][shadow=true]
-\setbeamercolor{block title}{fg=white,bg=NJUPurple!50}
-\setbeamercolor{block body}{fg=black,bg=white}
+\setbeamercolor{block title}{fg=white,bg=LightNJUPurple}
+\setbeamercolor{block body}{fg=black,bg=SuperLightNJUPurple}
 \setbeamerfont{title}{shape=\bfseries,size=\Large}
 \setbeamerfont{author}{shape=\bfseries}
 
@@ -75,8 +75,6 @@
 \makeatother
 
 
-%Contents before every section's starting slide
-% https://tex.stackexchange.com/questions/193975/highlight-only-current-subsection-hide-subsections-of-other-sections
 \AtBeginSection[]
 {
   \begin{frame}
@@ -90,6 +88,7 @@
   \end{frame}
 }
 
+% you can comment to disable TOC before every subsection
 \AtBeginSubsection[]
 {
   \begin{frame}
@@ -113,8 +112,7 @@
 \setbeamerfont{itemize/enumerate subbody}{size=\scriptsize} 
 \setbeamerfont{itemize/enumerate subsubbody}{size=\scriptsize}
 
-%%setting up some useful slide creation commands
-%split slide
+
 \newenvironment{splitframe}[5]
 %[1] ==> 1 parameter passed through {}
 %[2] ==> 2 parameters passed through {}{}
@@ -159,7 +157,12 @@
 \begin{frame}
 \frametitle{Test}
 
-Deep Learning~\cite{lecun2015deep} ...
+\begin{block}{Theorem. }
+
+Trivial
+
+\end{block}
+
 
 \end{frame}
 
